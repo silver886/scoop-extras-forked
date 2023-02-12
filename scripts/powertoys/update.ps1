@@ -111,10 +111,11 @@ $RegistryObject = $RegistryObject `
 
 $RegistryHeader = "Windows Registry Editor Version 5.00"
 
-Set-Content -Path $PSScriptRoot\install-context.reg -Value $RegistryHeader`n$(
-    $RegistryObject `
+Set-Content -Path $PSScriptRoot\install-context.reg -Encoding UTF8 -Value `
+    $RegistryHeader, `
+    $($RegistryObject `
     | ForEach-Object {
-        "`n[$(
+        Write-Output "`n[$(
             $_.Root
         )\$(
             $_.Key
@@ -138,10 +139,11 @@ Set-Content -Path $PSScriptRoot\install-context.reg -Value $RegistryHeader`n$(
     }
 )
 
-Set-Content -Path $PSScriptRoot\uninstall-context.reg -Value $RegistryHeader`n$(
-    $RegistryObject `
+Set-Content -Path $PSScriptRoot\uninstall-context.reg -Encoding UTF8 -Value `
+    $RegistryHeader, `
+    $($RegistryObject `
     | ForEach-Object {
-        "`n[$(
+        Write-Output "`n[$(
             if ($_.Key -NotMatch '.*Software\\Microsoft\\Internet Explorer.*') {
                 '-'
             }
