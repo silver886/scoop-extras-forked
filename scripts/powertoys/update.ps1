@@ -94,6 +94,7 @@ function Format-String {
         Replace('[FileLocksmithInstallFolder]', "{{scoop_dir}}\\modules\\FileLocksmith\\").
         Replace('[ImageResizerInstallFolder]', "{{scoop_dir}}\\modules\\ImageResizer\\").
         Replace('[PowerRenameInstallFolder]', "{{scoop_dir}}\\modules\\PowerRename\\").
+        Replace('[WinUI3AppsInstallFolder]', "{{scoop_dir}}\\WinUI3Apps\\").
         Replace('$(var.InstallScope)', 'perUser').
         Replace('$(var.RegistryScope)', 'HKEY_CURRENT_USER')
 }
