@@ -93,7 +93,9 @@ function Format-String {
         Replace('[INSTALLFOLDER]', "{{scoop_dir}}\\").
         Replace('[FileLocksmithInstallFolder]', "{{scoop_dir}}\\modules\\FileLocksmith\\").
         Replace('[ImageResizerInstallFolder]', "{{scoop_dir}}\\modules\\ImageResizer\\").
-        Replace('[PowerRenameInstallFolder]', "{{scoop_dir}}\\modules\\PowerRename\\")
+        Replace('[PowerRenameInstallFolder]', "{{scoop_dir}}\\modules\\PowerRename\\").
+        Replace('$(var.InstallScope)', 'perUser').
+        Replace('$(var.RegistryScope)', 'HKEY_CURRENT_USER')
 }
 
 $RegistryObject = $RegistryObject `
